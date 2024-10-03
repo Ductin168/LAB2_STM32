@@ -17,12 +17,10 @@ void settimer2(int index, int counter){
 }
 void timerRun(){
 	for( int i=0 ; i < 10 ; i++){
-		if(timerCouter[i]>0){
 			timerCouter[i]--;
 		if(timerCouter[i]<=0){
 			timerFlag[i]=1;
 		}
-	}
 	}
 }
 

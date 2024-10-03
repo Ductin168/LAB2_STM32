@@ -9,7 +9,7 @@
 void init_ex1(){
 	HAL_GPIO_WritePin(GPIOB, SEG_0_Pin|SEG_1_Pin|SEG_2_Pin|SEG_3_Pin
 			|SEG_4_Pin|SEG_5_Pin|SEG_6_Pin, 1);
-
+	HAL_GPIO_WritePin(GPIOA, EN2_Pin|EN3_Pin, SET);
 }
 int currentDisplay=0;
 void ex1_run(){
