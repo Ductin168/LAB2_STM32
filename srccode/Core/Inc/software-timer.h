@@ -15,6 +15,6 @@ extern int timerCouter[10];
 extern int timerFlag[10];
 void settimer1(int index, int counter);
 void settimer2(int index, int counter);
-void timerRun()
+void timerRun();
 
 #endif /* INC_SOFTWARE_TIMER_H_ */

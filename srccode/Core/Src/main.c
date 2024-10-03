@@ -23,6 +23,9 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "ex1.h"
+#include "display7SEG.h"
+#include "software-timer.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -89,13 +92,23 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  settimer1(0,20);
+  settimer2(0,34);
   while (1)
   {
+	  if(timerFlag[0]==1){
+		  ex1_run();
+		  settimer1(0,10);
+	  }
+	  if(timerFlag[1]==1){
+		  HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
+		  settimer2(1,1000);
+	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -245,7 +258,10 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
+	timerRun();
+}
 /* USER CODE END 4 */
 
 /**
