@@ -103,12 +103,13 @@ int main(void)
   {
 	  if(timerFlag[0]==1){
 		  ex1_run();
-		  settimer1(0,10);
+		  settimer1(0,50);
 	  }
 	  if(timerFlag[1]==1){
 		  HAL_GPIO_TogglePin(GPIOA, LED_RED_Pin);
 		  settimer2(1,1000);
 	  }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
